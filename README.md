@@ -53,6 +53,42 @@ whiskers-wags/
 ## Bootstrap Components
 
 This project extensively utilizes Bootstrap 4.5.2 for a responsive and modern design. Key components include:
+### home.html
+
+1. *Navbar*: Custom-styled navigation bar with a gradient background and offcanvas menu for mobile devices.
+
+2. *Offcanvas*: Responsive side menu for navigation on smaller screens.
+
+3. *Container*: Provides a responsive fixed-width container for various sections of the page.
+
+4. *Row and Column System*: Used for creating responsive layouts throughout the page.
+
+5. *Carousel*: Implemented for showcasing adoptable pets and testimonials.
+
+6. *Cards*: Used in the services section to display information with hover effects.
+
+7. *Accordion*: Utilized in the FAQ section for collapsible content.
+
+8. *Buttons*: Various styled buttons used throughout the page, including the scroll-to-top button.
+
+9. *Images*: Responsive image handling with Bootstrap's img-fluid class.
+
+10. *Typography Utilities*: Classes for text alignment, font weight, and styling.
+
+11. *Spacing Utilities*: Margin and padding classes for consistent spacing.
+
+12. *Flexbox Utilities*: Used for aligning and distributing content.
+
+13. *Background Utilities*: Custom background styles extending Bootstrap's utilities.
+
+14. *Border Utilities*: Used for rounded corners and other border styles.
+
+15. *Icon Integration*: Font Awesome icons integrated with Bootstrap components.
+
+16. *Responsive Breakpoints*: Utilized for adjusting layouts across different screen sizes.
+
+17. *Custom Component Styling*: Extended Bootstrap's default styles with custom CSS for unique design elements.
+
 
 ### login.html
 
