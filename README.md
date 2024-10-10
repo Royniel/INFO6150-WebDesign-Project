@@ -40,17 +40,15 @@ Adopting a pet brings joy, companionship, and unconditional love into your life.
 - **Engaging Visuals**: High-quality images of pets to attract potential adopters.
  
 ## Project Structure
- 
 The project is organized as follows:
 whiskers-wags/
-│
-├── home.html # Main landing page
-├── login.html # User login page
-├── signup.html # New user registration page
-├── forgetpassword.html # Password recovery page
-├── style.css # Custom styles
-├── script.js # JavaScript functionality
-└── images/ # Directory containing website images
+- home.html # Main landing page
+- login.html # User login page
+- signup.html # New user registration page
+- forgetpassword.html # Password recovery page
+- style.css # Custom styles
+- script.js # JavaScript functionality
+- images/ # Directory containing website images
  
 ## Bootstrap Components
 
@@ -77,6 +75,26 @@ This project extensively utilizes Bootstrap 4.5.2 for a responsive and modern de
 9. **Grid System**: Although not explicitly used in this example, the responsive design is built on Bootstrap's grid system.
 
 10. **Custom Styling**: While not a Bootstrap component, the code demonstrates how to extend Bootstrap's default styles with custom CSS for a unique look.
+
+### forgetpassword.html
+ 
+1. **Container**: Provides a responsive fixed-width container for page content, ensuring proper alignment on all devices.
+ 
+2. **Card**: Used for the main content area, offering a clean, boxed layout that highlights important information about pets.
+ 
+3. **Form**: Structures input fields and buttons for user interaction, enhancing usability with built-in validation features.
+ 
+4. **Form-group**: Organizes form elements with proper spacing, improving the overall aesthetic of forms.
+ 
+5. **Form-control**: Applies Bootstrap's custom styles to form inputs for a consistent look across all input fields.
+ 
+6. **Buttons**: Styled submit buttons using Bootstrap's button classes with hover effects for better user experience.
+ 
+7. **Text Utilities**: Classes like `text-center` for easy text alignment, ensuring that headings and important messages are visually appealing.
+ 
+8. **Spacing Utilities**: Margin and padding classes (e.g., `mt-3`) for consistent spacing between elements, contributing to a clean layout.
+ 
+9. **Flexbox Utilities**: Used for centering content vertically and horizontally within containers, creating an aesthetically pleasing design.
  
 ## Custom Styling
  
