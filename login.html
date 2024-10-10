@@ -12,7 +12,6 @@
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
-            /*background: url('petsbg.jpg') no-repeat center center fixed;*/
             background: url('images/dog&cat.jpeg') no-repeat center center fixed;
             background-size: cover;
             position: relative;
@@ -159,10 +158,12 @@
   <a href="home.html" class="text-purple header-link">Whiskers & Wags</a>
 </header>
     <div class="container">
-        <form class="form-signin" action="/login" method="post">
+        <form class="form-signin" onsubmit="return validateLogin()">
             <h2 class="h3 mb-3 font-weight-normal" style="color:purple;">Login🐾</h2>
             <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <div id="Usernameerror" class="invalid-feedback" style="display: none;">Please enter a valid Email</div>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div id="PasswordError" class="invalid-feedback" style="display: none;">Please enter a valid Password</div>
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
@@ -180,5 +181,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
