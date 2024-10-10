@@ -76,6 +76,31 @@ This project extensively utilizes Bootstrap 4.5.2 for a responsive and modern de
 
 10. **Custom Styling**: While not a Bootstrap component, the code demonstrates how to extend Bootstrap's default styles with custom CSS for a unique look.
 
+### signup.html
+ 
+1. **Container**: Provides a responsive fixed-width container for the signup form, ensuring proper alignment on all devices.
+ 
+2. **Card**: Used for the main content area, offering a clean, boxed layout that highlights the signup form.
+ 
+3. **Form**: Structures input fields and buttons for user interaction, enhancing usability with built-in validation features.
+ 
+4. **Form-row**: Creates a row of form elements, used to group first name and last name inputs side by side.
+ 
+5. **Form-group**: Organizes form elements with proper spacing, improving the overall aesthetic of the signup form.
+ 
+6. **Form-control**: Applies Bootstrap's custom styles to form inputs for a consistent look across all input fields.
+ 
+7. **Col-md-6**: Used within the form-row to create two equal-width columns for first name and last name inputs on medium-sized screens and up.
+ 
+8. **Button**: Styled submit button using Bootstrap's button classes with custom hover effects for better user experience.
+ 
+9. **Text Utilities**: Classes like `text-center` for easy text alignment of the form title and login link.
+ 
+10. **Spacing Utilities**: Margin classes (e.g., `mt-3`) for consistent spacing between elements, contributing to a clean layout.
+ 
+11. **Flexbox Utilities**: Used within the container class for centering the signup card vertically and horizontally.
+ 
+
 ### forgetpassword.html
  
 1. **Container**: Provides a responsive fixed-width container for page content, ensuring proper alignment on all devices.
