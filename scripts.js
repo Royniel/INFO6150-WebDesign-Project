@@ -33,7 +33,7 @@ function validateForm() {
         return false;
     }
  
-    if (!/^\d+$/.test(phoneNumber)) {
+    if (!/^\d{10}$/.test(phoneNumber)) {
         alert("Phone number should contain only numerical characters.");
         return false;
     }
