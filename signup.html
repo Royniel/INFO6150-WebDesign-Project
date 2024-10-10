@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W&W</title>
+    <link rel="icon"  href="images/logo.jpg" sizes="32x32" >
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background: url('images/dog&cat.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            <h5>Sign Up🐾</h5>
+            <form onsubmit="return validateForm()">
+                <div>
+                    <div>
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="First Name" required>
+                        <div id="firstNameError"style="display: none;">First name must contain only alphabets</div>
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Last Name" required>
+                        <div id="lastNameError" style="display: none;">Last name must contain only alphabets</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                    <div id="phoneNumberError" style="display: none;">Phone number must be numerical</div>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <div id="passwordError" style="display: none;">Password must be at least 8 characters long and contain at least one capital letter and one special character</div>
+                </div>
+                <button type="submit">Sign Up</button>
+                <div>
+                    <a href="login.html">Back to login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
