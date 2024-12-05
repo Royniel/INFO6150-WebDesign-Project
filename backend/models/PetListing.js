@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Defining the PetListing schema
 const PetListingSchema = new mongoose.Schema({
     name: { type: String, required: true },
     animalType: { type: String, required: true, enum: ['dog', 'cat', 'rabbit', 'bird', 'reptile', 'other'] },

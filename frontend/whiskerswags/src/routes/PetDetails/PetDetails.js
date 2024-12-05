@@ -4,6 +4,7 @@ import axios from "axios";
 import "./PetDetails.css";
 import Navbar from "../../components/Navbar/Navbar";
 
+// PetDetails component to display details of a pet listing
 const PetDetails = () => {
   const { id } = useParams();
   const [pet, setPet] = useState(null);
@@ -11,6 +12,7 @@ const PetDetails = () => {
   const [comments, setComments] = useState([]);
   const [likeCount, setLikeCount] = useState(0);
 
+  //hook to fetch pet details
   useEffect(() => {
     const fetchPetDetails = async () => {
       try {
@@ -25,6 +27,7 @@ const PetDetails = () => {
     fetchPetDetails();
   }, [id]);
 
+  //function to handle adoption of a pet
   const handleAdopt = async () => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
     if (loggedInUser && loggedInUser._id) {

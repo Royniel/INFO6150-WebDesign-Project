@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './VerticalNav.css';
 
+// VerticalNav component for admin dashboard navigation
 const VerticalNav = () => {
   return (
     <div className="vertical-nav">

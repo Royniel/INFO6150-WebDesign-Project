@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeroImage.css";
 
+// Hero image component for the landing page
 export default function HeroImage() {
   return (
     <header className="hero-container">

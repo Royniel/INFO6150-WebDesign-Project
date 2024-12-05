@@ -3,12 +3,14 @@ import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import './Profile.css';
 
+// Profile component to display user profile
 const Profile = () => {
     const [user, setUser] = useState(null);
     const [listedPets, setListedPets] = useState([]);
     const [likedPets, setLikedPets] = useState([]);
     const [adoptedPets, setAdoptedPets] = useState([]);
 
+    //hook to fetch user data and associated pets
     useEffect(() => {
         const fetchUserData = async () => {
             const loggedInUser = JSON.parse(localStorage.getItem('user'));
