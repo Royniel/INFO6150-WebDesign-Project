@@ -1,6 +1,7 @@
 const multer = require('multer');
 const path = require('path');
 
+// Configuring storage for uploaded files
 const storage = multer.diskStorage({
   destination: './uploads/',
   filename: function (req, file, cb) {
@@ -8,6 +9,7 @@ const storage = multer.diskStorage({
   }
 });
 
+// Configuring Multer
 const upload = multer({
   storage: storage,
   limits: { fileSize: 1000000 },
@@ -16,6 +18,7 @@ const upload = multer({
   }
 }).single('image');
 
+// Checking file type
 function checkFileType(file, cb) {
   const filetypes = /jpeg|jpg|png|gif/;
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());

@@ -3,6 +3,7 @@ const User = require('../models/User');
 
 const router = express.Router();
 
+// Route for fetching all users
 router.get('/', async (req, res) => {
     try {
         const users = await User.find().select('-password');
@@ -13,6 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Route for deleting a user by ID
 router.delete('/:id', async (req, res) => {
     try {
         await User.findByIdAndDelete(req.params.id);
