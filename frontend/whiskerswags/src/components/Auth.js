@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 import logo from '../assets/images/whiskers-logo.svg';
 
+// Auth component for user authentication
 const Auth = () => {
   const [form, setForm] = useState({
     name: "",
@@ -20,6 +21,7 @@ const Auth = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

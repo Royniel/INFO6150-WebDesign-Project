@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Register.css';
 
+// Register component for user registration
 const Register = () => {
   const [formData, setFormData] = useState({
     firstName: '',

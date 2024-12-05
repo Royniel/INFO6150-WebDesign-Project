@@ -5,12 +5,14 @@ import PetCard from "../../components/PetCard/PetCard";
 import Navbar from "../../components/Navbar/Navbar";
 import "./PetMatching.css";
 
+// PetMatching component to display and filter matching pet listings
 const PetMatching = () => {
   const { type } = useParams();
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
 
+  //hook to fetch all pet listings
   useEffect(() => {
     const fetchPets = async () => {
       try {
@@ -27,6 +29,7 @@ const PetMatching = () => {
     fetchPets();
   }, [type]);
 
+  //function to filter pets based on animal type
   const filterPets = (allPets, type) => {
     if (type === "all") {
       setFilteredPets(allPets);
@@ -38,6 +41,7 @@ const PetMatching = () => {
     }
   };
 
+  //function to handle filtering of pets during button click
   const handleFilter = (filterType) => {
     filterPets(pets, filterType.toLowerCase());
   };

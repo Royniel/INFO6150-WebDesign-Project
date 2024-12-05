@@ -6,30 +6,35 @@ const petListingRoutes = require('./routes/petListing');
 const path = require('path');
 const userRoutes = require('./routes/user');
 const statsRoutes = require('./routes/stats');
-const adminUserRoutes = require('./routes/users');
- 
+const adminUserRoutes = require('./routes/users'); 
+
+//configuring dotenv file
 dotenv.config();
- 
+
+//initializing express app
 const app = express();
 const PORT = process.env.PORT || 5001;
- 
+
 app.use(express.json());
- 
+
+//connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
- 
+
+//defining API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/petlisting', petListingRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/admin/users', adminUserRoutes);
- 
+
+//starting the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
- 
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./PetCard.css";
 
+// PetCard component to display individual pet information
 const PetCard = ({ pet, userId }) => {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comment, setComment] = useState("");
 
+  //function to handle like button click
   const handleLike = async () => {
     try {
       await axios.post(`/api/petlisting/like/${pet._id}`, { userId });
@@ -17,6 +19,7 @@ const PetCard = ({ pet, userId }) => {
     }
   };
 
+  //function to handle comment submission
   const handleComment = async () => {
     if (!comment) {
       return alert("Comment cannot be empty");
@@ -64,12 +67,14 @@ const PetCard = ({ pet, userId }) => {
           <p>{pet.sex}</p>
         </div>
       </div>
+      {/*Like and comment buttons*/}
       <div className="pet-card-actions">
         <button onClick={handleLike}>Like</button>
         <button onClick={() => setShowCommentBox(!showCommentBox)}>
           Comment
         </button>
       </div>
+      {/*comment box rendered conditionally*/}
       {showCommentBox && (
         <div className="comment-box">
           <textarea
@@ -80,6 +85,7 @@ const PetCard = ({ pet, userId }) => {
           <button onClick={handleComment}>Submit</button>
         </div>
       )}
+      {/*Link to detailed pet view*/}
       <Link to={`/petdetails/${pet._id}`} className="details-link">
         View Details
       </Link>

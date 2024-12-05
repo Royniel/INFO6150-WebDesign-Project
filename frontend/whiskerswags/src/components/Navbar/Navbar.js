@@ -3,14 +3,15 @@ import './Navbar.css';
 import logo from '../../assets/images/whiskers-logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 
+// Navbar component for site navigation
 const Navbar = () => {
     const navigate = useNavigate();
+    //user authentication
     const user = true;
 
+    //user logout handling function
     const handleLogout = () => {
-
         localStorage.removeItem('user');
-
         navigate("/");
     };
 
@@ -23,7 +24,7 @@ const Navbar = () => {
                 <Link to="/all-pets" className="link">
                     Pet Matching
                     </Link>
-
+                {/* Conditional rendering based on user authentication status */}
                 {user ? (
                 <>
                     <Link to="/profile" className="link">Profile</Link>

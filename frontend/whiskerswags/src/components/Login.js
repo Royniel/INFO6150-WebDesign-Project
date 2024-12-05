@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 
+// Login component for user login
 const Login = () => {
   const [formData, setFormData] = useState({
     firstName: '',
