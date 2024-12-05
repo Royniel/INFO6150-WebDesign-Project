@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Welcome.css";
 
+// Welcome component for admin dashboard home
 const Welcome = () => {
+  //state to store statistics
   const [stats, setStats] = useState({
     totalListings: 0,
     totalAdoptions: 0,
@@ -10,6 +12,7 @@ const Welcome = () => {
     animalTypes: [],
   });
 
+  //hook to fetch statistics
   useEffect(() => {
     const fetchStats = async () => {
       try {
