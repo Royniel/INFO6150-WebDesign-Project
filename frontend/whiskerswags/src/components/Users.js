@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Users.css";
 
+// Users component to display all users
 const Users = () => {
   const [users, setUsers] = useState([]);
 
+  //hook to fetch all users
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -17,6 +19,7 @@ const Users = () => {
     fetchUsers();
   }, []);
 
+  //function to handle deletion of a user
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/api/admin/users/${id}`);

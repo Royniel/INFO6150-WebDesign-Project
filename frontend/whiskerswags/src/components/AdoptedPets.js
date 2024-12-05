@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AdoptedPets.css';
 
+// AdoptedPets component to display adopted pets
 const AdoptedPets = () => {
     const [adoptedPets, setAdoptedPets] = useState([]);
 
+    //hook to fetch adopted pets
     useEffect(() => {
         const fetchAdoptedPets = async () => {
             try {
@@ -21,6 +23,7 @@ const AdoptedPets = () => {
         <div className="adopted-pets-container">
             <h2>Adopted Pets</h2>
             <div className="adopted-pets-grid">
+                {/* Displaying adopted pets and rendering a card for each*/}
                 {adoptedPets.map(pet => (
                     <div key={pet._id} className="adopted-pet-card">
                         <img src={pet.imageURL || 'placeholder.jpg'} alt={pet.name} className="pet-image" />

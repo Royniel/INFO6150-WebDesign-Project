@@ -4,11 +4,13 @@ import "./AllPets.css";
 import NavBar from "../../components/Navbar/Navbar";
 import PetCard from "../../components/PetCard/PetCard";
 
+// AllPets component to display and filter all pet listings
 const AllPets = () => {
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
   const [userId, setUserId] = useState('');
 
+  //hook to fetch all pet listings
   useEffect(() => {
     const fetchPets = async () => {
       try {
@@ -35,6 +37,7 @@ const AllPets = () => {
     fetchUserId();
   }, []);
 
+//function to filter pets based on animal type
   const handleFilter = (animalType) => {
     if (animalType === "All") {
       setFilteredPets(pets); 

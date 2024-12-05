@@ -4,6 +4,8 @@ import HeroImage from "../../components/HeroImage/HeroImage";
 import backgroundImage from "../../assets/images/background.jpg";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import NavBar from "../../components/Navbar/Navbar";
+
+// Home component to display the home page
 const Home = () => {
   return (
     <div

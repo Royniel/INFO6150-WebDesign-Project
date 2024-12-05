@@ -9,6 +9,7 @@ import PetMatching from './routes/PetMatching/PetMatching';
 import PetDetails from './routes/PetDetails/PetDetails'; 
 import Profile from './routes/Profile/Profile';
 
+// App component to render the application
 function App() {
     return (
         <Router>

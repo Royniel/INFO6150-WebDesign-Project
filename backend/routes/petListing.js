@@ -5,6 +5,7 @@ const upload = require('../middleware/upload');
 
 const router = express.Router();
 
+// Route for uploading images
 router.post('/upload', (req, res) => {
     upload(req, res, (err) => {
       if (err) {
@@ -19,6 +20,7 @@ router.post('/upload', (req, res) => {
     });
   });
 
+// Route for adding a new pet listing
 router.post('/add', async (req, res) => {
     const { name, animalType, age, breed, sex, colour, userListed, imageURL } = req.body;
 
@@ -37,6 +39,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
+// Route for fetching all unapproved pet listings
 router.get('/unapproved', async (req, res) => {
     try {
         const listings = await PetListing.find({ approved: false });
@@ -47,6 +50,7 @@ router.get('/unapproved', async (req, res) => {
     }
 });
 
+// Route for approving a pet listing
 router.put('/approve/:id', async (req, res) => {
     try {
         const listing = await PetListing.findById(req.params.id);
@@ -64,6 +68,7 @@ router.put('/approve/:id', async (req, res) => {
     }
 });
 
+// Route for fetching all pet listings
 router.get('/', async (req, res) => {
     try {
         const listings = await PetListing.find();
@@ -74,6 +79,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Route for fetching a pet listing by ID
 router.get('/:id', async (req, res) => {
     try {
         const listing = await PetListing.findById(req.params.id).populate('likedUsers', 'name').populate('comments.userId', 'name');
@@ -87,6 +93,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Route for liking a pet listing
 router.post('/like/:id', async (req, res) => {
     const { userId } = req.body;
     try {
@@ -113,6 +120,7 @@ router.post('/like/:id', async (req, res) => {
     }
 });
 
+// Route for adding a comment to the pet listing
 router.post('/comment/:id', async (req, res) => {
     const { userId, comment } = req.body;
     try {
@@ -137,6 +145,7 @@ router.post('/comment/:id', async (req, res) => {
     }
 });
 
+// Route for markign a pet as adopted
 router.put('/adopt/:id', async (req, res) => {
     const { userId } = req.body;
 
@@ -157,6 +166,7 @@ router.put('/adopt/:id', async (req, res) => {
     }
 });
 
+// Route for deleting a pet listing
 router.delete('/:id', async (req, res) => {
     try {
         const listing = await PetListing.findById(req.params.id);

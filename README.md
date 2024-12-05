@@ -5,7 +5,7 @@
 
 Welcome to **Whiskers&Wags**, a heartwarming pet adoption platform dedicated to connecting loving homes with furry friends in need. Our mission is to facilitate pet adoption and promote responsible pet ownership, ensuring that every animal finds a safe and loving environment.
  
-![Whiskers&Wags Logo](images/logo.jpg)
+![Whiskers&Wags Logo](frontend/whiskerswags/src/assets/images/whiskers-logo.svg)
  
 ## Table of Contents
  
@@ -15,12 +15,12 @@ Welcome to **Whiskers&Wags**, a heartwarming pet adoption platform dedicated to 
   - [Project Overview](#project-overview)
     - [Why Pet Adoption?](#why-pet-adoption)
   - [Features](#features)
-  - [Project Structure](#project-structure)
-  - [Bootstrap Components](#bootstrap-components)
-    - [login.html](#loginhtml)
-  - [Custom Styling](#custom-styling)
-  - [JavaScript Integration](#javascript-integration)
-  - [Dependencies](#dependencies)
+  - [Tech stack](#tech-stack)
+  - [Installation](#installation)
+  - [API Endpoints](#api-endpoints)
+    - [User Routes](#user-routes)
+    - [Pet Listing Routes](#pet-listing-routes)
+  - [Group members](#group-members)
  
 ## Project Overview
  
@@ -32,191 +32,95 @@ Adopting a pet brings joy, companionship, and unconditional love into your life.
  
 ## Features
  
-- **User-Friendly Interface**: Easy navigation with clear links to login, signup, and password recovery pages.
-- **Responsive Design**: Optimized for mobile and desktop devices using Bootstrap.
-- **Pet Profiles**: Detailed information about each pet available for adoption, including images and descriptions.
-- **User Authentication**: Secure login and signup process to manage user accounts.
-- **Password Recovery**: Simple process for users to recover their passwords if forgotten.
-- **Engaging Visuals**: High-quality images of pets to attract potential adopters.
+- **User Authentication**: Users can register and log in to the application. Admins are identified by their email domain (@wwadmin.com).
+- **Upload Pet Listings**: Registered users can upload pet listings with details such as name, type, age, breed, sex, color, and image.
+- **Like and Comment on Pet Listings**: Users can like and comment on pet listings. Comments include the user's name and comment text.
+- **Adopt Pets**: Users can adopt pets, which changes the pet's status to adopted and records the adopting user's details.
+- **Admin Approval for Pet Listings**: Admins can approve pet listings raised by registered users.
+- **Admin User Management**: Admins can manage the users registered to the system.
  
-## Project Structure
-The project is organized as follows:
-whiskers-wags/
-- home.html # Main landing page
-- login.html # User login page
-- signup.html # New user registration page
-- forgetpassword.html # Password recovery page
-- style.css # Custom styles
-- script.js # JavaScript functionality
-- images/ # Directory containing website images
- 
-## Bootstrap Components
+## Tech stack
+- **MongoDB Atlas**: A NoSQL database for storing user and pet data.
+- **Express.js**: A web application framework for Node.js, used to build the backend API.
+- **React**: A JavaScript library for building user interfaces, used for the frontend of the application.
+- **Node.js**: A JavaScript runtime built on Chrome's V8 engine, used to build the backend server.
+- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js.
+- **Axios**: A promise-based HTTP client for the browser and Node.js, used to make API requests from the frontend.
+- **Bcrypt**: A library to hash passwords, used to enhance security by storing hashed passwords.
+- **Multer**: A middleware for handling multipart/form-data, used for uploading images.
 
-This project extensively utilizes Bootstrap 4.5.2 for a responsive and modern design. Key components include:
-### home.html
+## Installation
 
-1. *Navbar*: Custom-styled navigation bar with a gradient background and offcanvas menu for mobile devices.
+1. **Clone the repository**
+```
+git clone https://github.com/Royniel/INFO6150-WebDesign-Project.git
+```
 
-2. *Offcanvas*: Responsive side menu for navigation on smaller screens.
+2. **Set up the backend**
+```
+cd backend
+npm install i
+```
 
-3. *Container*: Provides a responsive fixed-width container for various sections of the page.
+3. **Set up the frontend**
+```
+cd frontend
+cd whiskerswags
+npm install i
+```
 
-4. *Row and Column System*: Used for creating responsive layouts throughout the page.
+4. **Configure environment variables:**
+Create a .env file in the backend directory and add the following:
+```
+PORT=5001
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
 
-5. *Carousel*: Implemented for showcasing adoptable pets and testimonials.
+5. **Start the development servers**
+```
+cd backend
+npm start
+```
 
-6. *Cards*: Used in the services section to display information with hover effects.
+```
+cd frontend
+cd whiskerswags
+npm start
+```
 
-7. *Accordion*: Utilized in the FAQ section for collapsible content.
-
-8. *Buttons*: Various styled buttons used throughout the page, including the scroll-to-top button.
-
-9. *Images*: Responsive image handling with Bootstrap's img-fluid class.
-
-10. *Typography Utilities*: Classes for text alignment, font weight, and styling.
-
-11. *Spacing Utilities*: Margin and padding classes for consistent spacing.
-
-12. *Flexbox Utilities*: Used for aligning and distributing content.
-
-13. *Background Utilities*: Custom background styles extending Bootstrap's utilities.
-
-14. *Border Utilities*: Used for rounded corners and other border styles.
-
-15. *Icon Integration*: Font Awesome icons integrated with Bootstrap components.
-
-16. *Responsive Breakpoints*: Utilized for adjusting layouts across different screen sizes.
-
-17. *Custom Component Styling*: Extended Bootstrap's default styles with custom CSS for unique design elements.
+6. **Open your browser**
+Navigate to `http://localhost:3000` to use the application.
 
 
-### login.html
+## API Endpoints
 
-1. **Container**: Provides a responsive fixed-width container for the login form, ensuring proper alignment on all devices.
+### User Routes
 
-2. **Form**: Structures input fields and buttons for user interaction, enhancing usability with built-in validation features.
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Log in a user
+- `GET /api/users/:id` - Get user details
+- `GET /api/users/pets/listed/:id` - Get user's listed pets
+- `GET /api/users/pets/liked/:id` - Get user's liked pets
+- `GET /api/users/pets/adopted/:id` - Get user's adopted pets
 
-3. **Form-control**: Applies Bootstrap's custom styles to form inputs for a consistent look across all input fields.
+### Pet Listing Routes
 
-4. **Checkbox**: Used for the "Remember me" option, styled with Bootstrap's default checkbox appearance.
+- `POST /api/petlisting/upload` - Upload a pet image
+- `POST /api/petlisting/add` - Add a new pet listing
+- `GET /api/petlisting/unapproved` - Get all unapproved pet listings
+- `PUT /api/petlisting/approve/:id` - Approve a pet listing
+- `GET /api/petlisting` - Get all pet listings
+- `GET /api/petlisting/:id` - Get a pet listing by ID
+- `POST /api/petlisting/like/:id` - Like a pet listing
+- `POST /api/petlisting/comment/:id` - Add a comment to a pet listing
+- `PUT /api/petlisting/adopt/:id` - Adopt a pet
+- `DELETE /api/petlisting/:id` - Delete a pet listing
 
-5. **Button**: Styled submit button using Bootstrap's button classes with custom hover effects for better user experience.
 
-6. **Text Utilities**: Classes like `text-purple` and `font-weight-normal` for consistent text styling.
-
-7. **Spacing Utilities**: Margin and padding classes (e.g., `mb-3`) for consistent spacing between elements.
-
-8. **Flexbox Utilities**: Used within the container class for centering the login form vertically and horizontally.
-
-9. **Grid System**: Although not explicitly used in this example, the responsive design is built on Bootstrap's grid system.
-
-10. **Custom Styling**: While not a Bootstrap component, the code demonstrates how to extend Bootstrap's default styles with custom CSS for a unique look.
-
-### signup.html
- 
-1. **Container**: Provides a responsive fixed-width container for the signup form, ensuring proper alignment on all devices.
- 
-2. **Card**: Used for the main content area, offering a clean, boxed layout that highlights the signup form.
- 
-3. **Form**: Structures input fields and buttons for user interaction, enhancing usability with built-in validation features.
- 
-4. **Form-row**: Creates a row of form elements, used to group first name and last name inputs side by side.
- 
-5. **Form-group**: Organizes form elements with proper spacing, improving the overall aesthetic of the signup form.
- 
-6. **Form-control**: Applies Bootstrap's custom styles to form inputs for a consistent look across all input fields.
- 
-7. **Col-md-6**: Used within the form-row to create two equal-width columns for first name and last name inputs on medium-sized screens and up.
- 
-8. **Button**: Styled submit button using Bootstrap's button classes with custom hover effects for better user experience.
- 
-9. **Text Utilities**: Classes like `text-center` for easy text alignment of the form title and login link.
- 
-10. **Spacing Utilities**: Margin classes (e.g., `mt-3`) for consistent spacing between elements, contributing to a clean layout.
- 
-11. **Flexbox Utilities**: Used within the container class for centering the signup card vertically and horizontally.
- 
-
-### forgetpassword.html
- 
-1. **Container**: Provides a responsive fixed-width container for page content, ensuring proper alignment on all devices.
- 
-2. **Card**: Used for the main content area, offering a clean, boxed layout that highlights important information about pets.
- 
-3. **Form**: Structures input fields and buttons for user interaction, enhancing usability with built-in validation features.
- 
-4. **Form-group**: Organizes form elements with proper spacing, improving the overall aesthetic of forms.
- 
-5. **Form-control**: Applies Bootstrap's custom styles to form inputs for a consistent look across all input fields.
- 
-6. **Buttons**: Styled submit buttons using Bootstrap's button classes with hover effects for better user experience.
- 
-7. **Text Utilities**: Classes like `text-center` for easy text alignment, ensuring that headings and important messages are visually appealing.
- 
-8. **Spacing Utilities**: Margin and padding classes (e.g., `mt-3`) for consistent spacing between elements, contributing to a clean layout.
- 
-9. **Flexbox Utilities**: Used for centering content vertically and horizontally within containers, creating an aesthetically pleasing design.
- 
-## Custom Styling
- 
-In addition to Bootstrap’s default styles, we have implemented custom CSS to enhance the visual appeal of the website:
- 
-- A blur effect on the card background using `backdrop-filter` creates a soft focus effect that draws attention to the content.
-- A unique color scheme featuring purple accents (#8a2be2) aligns with our branding while providing visual interest.
-- Hover effects on buttons and links enhance interactivity and encourage user engagement.
-- A full-screen background image featuring pets adds warmth and character to the site.
-
-- **Carousel Customization**: 
-  - Custom positioning and styling of carousel captions for better readability.
-  - Responsive design adjustments for carousel elements.
-
-- **Process Section**: 
-  - Custom styling for process steps, including responsive image sizing.
-  - Box shadow and border effects for a more polished look.
-
-- **Services Section**:
-  - Unique layout with a central image and positioned service items.
-  - Custom hover effects with overlays for service descriptions.
-
-- **Navbar Enhancements**:
-  - Custom purple background for dropdown menus.
-  - Hover effects for dropdown items.
-
-- **Footer Design**:
-  - Two-tone footer with custom background colors and text styling.
-  - Responsive layout adjustments for different screen sizes.
-
-- **Color Scheme**:
-  - Consistent use of purple (#8a2be2) as the primary accent color throughout the site.
-  - Custom background colors for various sections to improve visual hierarchy.
-
-- **Responsive Design**:
-  - Media queries to ensure proper display on various device sizes.
-  - Adjustments to image sizes and layouts for mobile responsiveness.
-
-- **Interactive Elements**:
-  - Custom hover effects on buttons and links.
-  - Transition effects for smoother user interactions.
-
-- **Typography**:
-  - Custom font sizes and weights for headings and body text.
-  - Text color adjustments for better contrast and readability.
-
-- **Bootstrap Variable Customization**:
-  - Modification of Bootstrap's default variables for carousels and popovers to match the site's design.
-
-These custom styles work in conjunction with Bootstrap's components to create a unique and cohesive design that aligns with the Whiskers&Wags brand identity while maintaining responsiveness and accessibility across different devices.
- 
-## JavaScript Integration
- 
-The JavaScript file (`script.js`) enhances user experience by providing:
- 
-- Form validation functionality to ensure users enter valid data before submission.
-- Dynamic interactions such as error messages that guide users in filling out forms correctly.
- 
-## Dependencies
- 
-This project relies on several key libraries:
-*Bootstrap 4.5.2:* For responsive design components.
-*jQuery 3.5.1:* For DOM manipulation and event handling.
-*Popper.js 2.5.2:* For managing popovers and tooltips in Bootstrap components.
+## Group members
+- Anusha Gali
+- Nilanjan Roy
+- Nikita Gupta
+- Ashutosh Dwivedi
+- Srujan Voodarla

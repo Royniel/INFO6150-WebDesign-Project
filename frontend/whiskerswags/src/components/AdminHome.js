@@ -7,6 +7,7 @@ import Users from "./Users";
 import logo from '../assets/images/whiskers-logo.svg';
 import AdoptedPets from "./AdoptedPets";
 
+// AdminHome component for admin dashboard
 const AdminHome = () => {
   const navigate = useNavigate();
 
@@ -41,6 +42,7 @@ const AdminHome = () => {
         </ul>
       </div>
       <div className="content">
+        {/* Nested routing for admin dashboard */}
         <Routes>
           <Route path="home" element={<Welcome />} />
           <Route path="approvals" element={<Approvals />} />

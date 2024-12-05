@@ -4,6 +4,7 @@ const PetListing = require('../models/PetListing');
 
 const router = express.Router();
 
+// Route for fetching a user by ID
 router.get('/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
@@ -17,6 +18,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+//Get pets listed by a specific user
 router.get('/pets/listed/:id', async (req, res) => {
     try {
         const pets = await PetListing.find({ userListed: req.params.id });
@@ -27,6 +29,7 @@ router.get('/pets/listed/:id', async (req, res) => {
     }
 });
 
+//Get pets liked by a specific user
 router.get('/pets/liked/:id', async (req, res) => {
     try {
         const pets = await PetListing.find({ likedUsers: req.params.id });
@@ -37,6 +40,7 @@ router.get('/pets/liked/:id', async (req, res) => {
     }
 });
 
+//Get pets adopted by a specific user
 router.get('/pets/adopted/:id', async (req, res) => {
     try {
         const adoptedPets = await PetListing.find({ adoptedUser: req.params.id });

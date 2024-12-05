@@ -5,11 +5,13 @@ import NavBar from '../components/Navbar/Navbar';
 import backgroundImage from "../assets/images/Pawsbackground.png";
 import './UploadPet.css';
 
+// UploadPet component to add a new pet listing
 const UploadPet = () => {
     const [form, setForm] = useState({ name: '', animalType: '', age: '', breed: '', sex: '', colour: '', image: null });
     const [userId, setUserId] = useState('');
     const navigate = useNavigate(); 
 
+    //hook to fetch user id from local storage
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user._id) {
